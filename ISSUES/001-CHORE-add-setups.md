@@ -2,7 +2,8 @@
 프로젝트 시작 전 간단한 세팅을 진행합니다.
 
 ## Todo
-- [ ] Agent 추가
+- [x] Claude.md 추가
+- [X] Agent 추가
   - [X] Reviewer
   - [X] Developer
 - [X] 코딩 스타일 가이드 추가
