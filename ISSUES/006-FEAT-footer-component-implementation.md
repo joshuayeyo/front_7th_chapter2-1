@@ -6,13 +6,13 @@
 
 ## Todo
 
-- [ ] Footer 컴포넌트 생성 (`src/components/commons/Footer/index.js`)
-- [ ] `CommonFooter()` 함수로 정적 Footer HTML 반환 구현
-- [ ] `product-list-template.js`에서 기존 정적 Footer를 `CommonFooter()` 호출로 교체
-- [ ] 절대경로 import 사용 (`@/components/commons/Footer`)
-- [ ] JSDoc 문서화 추가
-- [ ] 다른 템플릿 파일들에도 Footer 컴포넌트 적용
-- [ ] 커밋 및 코드 리뷰
+- [x] Footer 컴포넌트 생성 (`src/components/commons/Footer/index.js`)
+- [x] `CommonFooter()` 함수로 정적 Footer HTML 반환 구현
+- [x] `product-list-template.js`에서 기존 정적 Footer를 `CommonFooter()` 호출로 교체
+- [x] 절대경로 import 사용 (`@/components/commons/Footer`)
+- [x] JSDoc 문서화 추가
+- [x] 다른 템플릿 파일들에도 Footer 컴포넌트 적용
+- [x] 커밋 및 코드 리뷰
 
 ## ETC
 
