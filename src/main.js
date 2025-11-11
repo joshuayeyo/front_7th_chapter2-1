@@ -1,4 +1,5 @@
 import { Toast } from './components/commons/Toast/index.js';
+import { mountCartIcon } from './hooks/components/commons/mountCartIcon.js';
 import { mountDetailSpinner } from './hooks/components/commons/mountDetailSpinner.js';
 import { mountSpinner } from './hooks/components/commons/mountSpinner.js';
 import { enableMocking } from './utils/enable-mocking.js';
@@ -66,10 +67,16 @@ function main() {
     toast.show();
   });
 
-  // SearchBar 컴포넌트 마운트 (즉시 실행)
+  // 컴포넌트 마운트 (즉시 실행)
   mountSearchBar();
   mountSpinner();
   mountDetailSpinner();
+
+  // CartIcon 마운트 (다양한 상태)
+  mountCartIcon('cart-icon-container', { count: 0 }); // 로딩 상태 (0개)
+  mountCartIcon('cart-icon-container-loaded', { count: 4 }); // 로딩완료 상태 (4개)
+  mountCartIcon('cart-icon-detail-loading', { count: 0 }); // 상세페이지 로딩 (0개)
+  mountCartIcon('cart-icon-detail-loaded', { count: 1 }); // 상세페이지 로딩완료 (1개)
 }
 
 if (import.meta.env.MODE !== 'test') {
