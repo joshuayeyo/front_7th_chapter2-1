@@ -9,6 +9,7 @@ import { mountProductDetailBreadcrumb } from './hooks/components/features/mountP
 import { mountProductDetailHeader } from './hooks/components/features/mountProductDetailHeader.js';
 import { mountProductQuantityActions } from './hooks/components/features/mountProductQuantityActions.js';
 import { mountProductRating } from './hooks/components/features/mountProductRating.js';
+import { mountRelatedProducts } from './hooks/components/features/mountRelatedProducts.js';
 import { enableMocking } from './utils/enable-mocking.js';
 
 import {
@@ -250,6 +251,46 @@ function main() {
     };
 
     mountProductRating(containerId, options);
+  });
+
+  // RelatedProducts 마운트 (모든 .related-products 요소에)
+  document.querySelectorAll('.related-products').forEach((container, index) => {
+    const containerId = `related-products-${index}`;
+    container.id = containerId;
+
+    const title = container.getAttribute('data-title') || '관련 상품';
+    const subtitle =
+      container.getAttribute('data-subtitle') || '같은 카테고리의 다른 상품들';
+    const columns = parseInt(container.getAttribute('data-columns')) || 2;
+
+    // 샘플 관련 상품 데이터
+    const sampleRelatedProducts = [
+      {
+        id: '86940857379',
+        title:
+          '샷시 풍지판 창문 바람막이 베란다 문 틈막이 창틀 벌레 차단 샤시 방충망 틈새막이',
+        price: 230,
+        image:
+          'https://shopping-phinf.pstatic.net/main_8694085/86940857379.1.jpg',
+      },
+      {
+        id: '82094468339',
+        title: '실리카겔 50g 습기제거제 제품 /산업 신발 의류 방습제',
+        price: 280,
+        image:
+          'https://shopping-phinf.pstatic.net/main_8209446/82094468339.4.jpg',
+      },
+    ];
+
+    const options = {
+      title,
+      subtitle,
+      columns,
+      products: sampleRelatedProducts,
+      isLoading: false, // 로딩 완료 상태
+    };
+
+    mountRelatedProducts(containerId, options);
   });
 }
 
