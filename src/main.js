@@ -5,6 +5,7 @@ import { mountFilterBar } from './hooks/components/commons/mountFilterBar.js';
 import { mountHeader } from './hooks/components/commons/mountHeader.js';
 import { mountProductGrid } from './hooks/components/commons/mountProductGrid.js';
 import { mountSpinner } from './hooks/components/commons/mountSpinner.js';
+import { mountProductDetailBreadcrumb } from './hooks/components/features/mountProductDetailBreadcrumb.js';
 import { mountProductDetailHeader } from './hooks/components/features/mountProductDetailHeader.js';
 import { enableMocking } from './utils/enable-mocking.js';
 
@@ -182,6 +183,25 @@ function main() {
       };
 
       mountProductDetailHeader(containerId, options);
+    });
+
+  // ProductDetailBreadcrumb 마운트 (모든 .product-detail-breadcrumb 요소에)
+  document
+    .querySelectorAll('.product-detail-breadcrumb')
+    .forEach((container, index) => {
+      const containerId = `product-detail-breadcrumb-${index}`;
+      container.id = containerId;
+
+      const category1 = container.getAttribute('data-category1');
+      const category2 = container.getAttribute('data-category2');
+
+      const options = {
+        category1,
+        category2,
+        showProductName: false, // 기본적으로 상품명은 표시하지 않음
+      };
+
+      mountProductDetailBreadcrumb(containerId, options);
     });
 }
 
