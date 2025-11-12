@@ -20,8 +20,6 @@ import {
 import {
   상품목록_레이아웃_로딩,
   상품목록_레이아웃_로딩완료,
-  상품목록_레이아웃_카테고리_1Depth,
-  상품목록_레이아웃_카테고리_2Depth,
   mountSearchBar,
 } from './constants/templates/product-list-template.js';
 
@@ -30,10 +28,6 @@ function main() {
     ${상품목록_레이아웃_로딩}
     <br />
     ${상품목록_레이아웃_로딩완료}
-    <br />
-    ${상품목록_레이아웃_카테고리_1Depth}
-    <br />
-    ${상품목록_레이아웃_카테고리_2Depth}
     <br />
     <div id="toast-demo" style="margin-bottom: 20px; justify-content: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
       <h1>동적 Toast 컴포넌트 테스트</h1>
