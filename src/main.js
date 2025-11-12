@@ -3,6 +3,7 @@ import { mountCartIcon } from './hooks/components/commons/mountCartIcon.js';
 import { mountDetailSpinner } from './hooks/components/commons/mountDetailSpinner.js';
 import { mountItemsPerPageSelector } from './hooks/components/commons/mountItemsPerPageSelector.js';
 import { mountProductGrid } from './hooks/components/commons/mountProductGrid.js';
+import { mountSortSelector } from './hooks/components/commons/mountSortSelector.js';
 import { mountSpinner } from './hooks/components/commons/mountSpinner.js';
 import { enableMocking } from './utils/enable-mocking.js';
 
@@ -123,6 +124,16 @@ function main() {
         options: [10, 20, 50, 100],
       });
     });
+
+  // SortSelector 마운트 (모든 .sort-selector 요소에)
+  document.querySelectorAll('.sort-selector').forEach((container, index) => {
+    const containerId = `sort-selector-${index}`;
+    container.id = containerId;
+
+    mountSortSelector(containerId, {
+      defaultValue: 'price_asc',
+    });
+  });
 }
 
 if (import.meta.env.MODE !== 'test') {
