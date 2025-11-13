@@ -60,21 +60,11 @@ export class ProductCard {
   bindEvents() {
     if (this.isLoading || !this.product) return;
 
-    const productImage = this.cardElement.querySelector('.product-image');
-    const productInfo = this.cardElement.querySelector('.product-info');
-
-    [productImage, productInfo].forEach((element) => {
-      if (element) {
-        element.addEventListener('click', () => {
-          this.onProductClick();
-        });
-      }
-    });
-
-    // 장바구니 버튼 클릭 이벤트
+    // 장바구니 버튼 클릭 이벤트 (링크 네비게이션 방지)
     const addButton = this.cardElement.querySelector('.add-to-cart-btn');
     if (addButton) {
       addButton.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
         this.onAddToCart();
       });

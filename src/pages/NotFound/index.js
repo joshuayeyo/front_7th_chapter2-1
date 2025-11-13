@@ -41,7 +41,7 @@ export class NotFound {
           <rect x="130" y="130" width="60" height="2" rx="1" fill="url(#blueGradient)" opacity="0.3"/>
         </svg>
 
-        <button class="home-btn inline-block px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">${this.homeText}</button>
+        <a href="/" data-link="" class="home-btn inline-block px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">${this.homeText}</a>
       </div>
     `;
 
@@ -50,21 +50,7 @@ export class NotFound {
   }
 
   bindEvents() {
-    if (!this.containerElement) return;
-
-    const homeBtn = this.containerElement.querySelector('.home-btn');
-    if (homeBtn) {
-      homeBtn.addEventListener('click', () => {
-        this.onHomeClick();
-      });
-    }
-  }
-
-  onHomeClick() {
-    const event = new CustomEvent('navigate-home', {
-      bubbles: true,
-    });
-    this.containerElement.dispatchEvent(event);
+    // SPA 라우터가 data-link를 통해 네비게이션 처리
   }
 
   mount(container = document.body) {

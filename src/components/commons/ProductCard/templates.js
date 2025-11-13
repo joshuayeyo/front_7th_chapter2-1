@@ -24,19 +24,21 @@ export function getProductTemplate(product, showAddButton) {
   const { id, image, title, brand, price } = product;
 
   return `
-    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer product-image">
-      <img src="${image}" alt="${title}"
-           class="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
-           loading="lazy">
-    </div>
-    <div class="p-3">
-      <div class="cursor-pointer product-info mb-3">
-        <h3 class="text-sm font-medium text-gray-900 line-clamp-2 mb-1">${title}</h3>
-        ${brand ? `<p class="text-xs text-gray-500 mb-2">${brand}</p>` : '<p class="text-xs text-gray-500 mb-2"></p>'}
-        <p class="text-lg font-bold text-gray-900">${formatPrice(price)}</p>
+    <a href="/product/${id}" data-link="" class="block">
+      <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer product-image">
+        <img src="${image}" alt="${title}"
+             class="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+             loading="lazy">
       </div>
-      ${showAddButton ? getAddButtonTemplate(id) : ''}
-    </div>
+      <div class="p-3">
+        <div class="cursor-pointer product-info mb-3">
+          <h3 class="text-sm font-medium text-gray-900 line-clamp-2 mb-1">${title}</h3>
+          ${brand ? `<p class="text-xs text-gray-500 mb-2">${brand}</p>` : '<p class="text-xs text-gray-500 mb-2"></p>'}
+          <p class="text-lg font-bold text-gray-900">${formatPrice(price)}</p>
+        </div>
+      </div>
+    </a>
+    ${showAddButton ? `<div class="px-3 pb-3">${getAddButtonTemplate(id)}</div>` : ''}
   `;
 }
 

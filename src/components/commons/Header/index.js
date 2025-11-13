@@ -32,10 +32,17 @@ export class Header {
       }
     }
 
-    // 제목
+    // 제목 (홈 링크)
     const titleElement = document.createElement('h1');
     titleElement.className = 'text-lg font-bold text-gray-900';
-    titleElement.textContent = this.title;
+
+    const titleLink = document.createElement('a');
+    titleLink.href = '/';
+    titleLink.setAttribute('data-link', '');
+    titleLink.className = 'hover:text-blue-600 transition-colors';
+    titleLink.textContent = this.title;
+
+    titleElement.appendChild(titleLink);
     leftSection.appendChild(titleElement);
 
     // 오른쪽 콘텐츠 영역
