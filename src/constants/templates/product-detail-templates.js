@@ -1,7 +1,5 @@
 // HTML template constants for product detail page
 // 상품 상세 페이지 HTML 템플릿 상수들
-// File exceeds 80 lines due to large HTML template constants
-// HTML 템플릿 상수로 인해 80줄 초과
 
 import { CommonFooter } from '@/components/commons/Footer';
 
@@ -9,11 +7,10 @@ export const 상세페이지_로딩 = `
     <div class="min-h-screen bg-gray-50">
       <div class="product-detail-header" data-cart-count="0"></div>
       <main class="max-w-md mx-auto px-4 py-4">
-        <div class="py-20 bg-gray-50 flex items-center justify-center">
-          <div class="text-center">
-            <div id="detail-spinner-container"></div>
-          </div>
-        </div>
+        <!-- 브레드크럼 -->
+        <div class="product-detail-breadcrumb" data-category1="" data-category2=""></div>
+        <!-- 상품 상세 정보 (로딩 상태) -->
+        <div class="product-detail" data-loading="true"></div>
       </main>
       ${CommonFooter()}
     </div>
@@ -26,33 +23,9 @@ export const 상세페이지_로딩완료 = `
         <!-- 브레드크럼 -->
         <div class="product-detail-breadcrumb" data-category1="생활/건강" data-category2="생활용품"></div>
         <!-- 상품 상세 정보 -->
+        <div class="product-detail" data-product-id="85067212996"></div>
+        <!-- 수량 선택 및 액션 -->
         <div class="bg-white rounded-lg shadow-sm mb-6">
-          <!-- 상품 이미지 -->
-          <div class="p-4">
-            <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-              <img src="https://shopping-phinf.pstatic.net/main_8506721/85067212996.1.jpg" alt="PVC 투명 젤리 쇼핑백 1호 와인 답례품 구디백 비닐 손잡이 미니 간식 선물포장" class="w-full h-full object-cover product-detail-image">
-            </div>
-            <!-- 상품 정보 -->
-            <div>
-              <p class="text-sm text-gray-600 mb-1"></p>
-              <h1 class="text-xl font-bold text-gray-900 mb-3">PVC 투명 젤리 쇼핑백 1호 와인 답례품 구디백 비닐 손잡이 미니 간식 선물포장</h1>
-              <!-- 평점 및 리뷰 -->
-              <div class="product-rating" data-product-id="85067212996" data-rating="4.0" data-review-count="749"></div>
-              <!-- 가격 -->
-              <div class="mb-4">
-                <span class="text-2xl font-bold text-blue-600">220원</span>
-              </div>
-              <!-- 재고 -->
-              <div class="text-sm text-gray-600 mb-4">
-                재고 107개
-              </div>
-              <!-- 설명 -->
-              <div class="text-sm text-gray-700 leading-relaxed mb-6">
-                PVC 투명 젤리 쇼핑백 1호 와인 답례품 구디백 비닐 손잡이 미니 간식 선물포장에 대한 상세 설명입니다. 브랜드의 우수한 품질을 자랑하는 상품으로, 고객 만족도가 높은 제품입니다.
-              </div>
-            </div>
-          </div>
-          <!-- 수량 선택 및 액션 -->
           <div class="product-quantity-actions" data-product-id="85067212996" data-price="220" data-max-quantity="107"></div>
         </div>
         <!-- 관련 상품 -->

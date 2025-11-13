@@ -5,6 +5,7 @@ import { mountFilterBar } from './hooks/components/commons/mountFilterBar.js';
 import { mountHeader } from './hooks/components/commons/mountHeader.js';
 import { mountProductGrid } from './hooks/components/commons/mountProductGrid.js';
 import { mountSpinner } from './hooks/components/commons/mountSpinner.js';
+import { mountProductDetail } from './hooks/components/features/mountProductDetail.js';
 import { mountProductDetailBreadcrumb } from './hooks/components/features/mountProductDetailBreadcrumb.js';
 import { mountProductDetailHeader } from './hooks/components/features/mountProductDetailHeader.js';
 import { mountProductQuantityActions } from './hooks/components/features/mountProductQuantityActions.js';
@@ -251,6 +252,37 @@ function main() {
     };
 
     mountProductRating(containerId, options);
+  });
+
+  // ProductDetail 마운트 (모든 .product-detail 요소에)
+  document.querySelectorAll('.product-detail').forEach((container, index) => {
+    const containerId = `product-detail-${index}`;
+    container.id = containerId;
+
+    const isLoading = container.getAttribute('data-loading') === 'true';
+
+    // 샘플 상품 데이터
+    const sampleProductData = {
+      id: '85067212996',
+      title:
+        'PVC 투명 젤리 쇼핑백 1호 와인 답례품 구디백 비닐 손잡이 미니 간식 선물포장',
+      price: 220,
+      image:
+        'https://shopping-phinf.pstatic.net/main_8506721/85067212996.1.jpg',
+      category: '생활/건강',
+      rating: 4.0,
+      reviewCount: 749,
+      stock: 107,
+      description:
+        'PVC 투명 젤리 쇼핑백 1호 와인 답례품 구디백 비닐 손잡이 미니 간식 선물포장에 대한 상세 설명입니다. 브랜드의 우수한 품질을 자랑하는 상품으로, 고객 만족도가 높은 제품입니다.',
+    };
+
+    const options = {
+      isLoading,
+      product: isLoading ? null : sampleProductData,
+    };
+
+    mountProductDetail(containerId, options);
   });
 
   // RelatedProducts 마운트 (모든 .related-products 요소에)
